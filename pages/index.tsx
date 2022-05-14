@@ -162,7 +162,7 @@ const Main: FC = () => {
                 </thead>
                 <tbody>
                     {
-                        PERICIAS.map(per => {
+                        PERICIAS.map((per, idx) => {
 
                             const { attr, name, treined, armadura } = per;
                             const valueAttr = Number(ficha[`${per.attr}_bonus`] || 0);
@@ -175,7 +175,7 @@ const Main: FC = () => {
                             const errorTreinedStyle = (valueTreino !== 0 && valueTreino !== Number(PERICIA_TREINO)) ?
                                 { backgroundColor: 'red', color: 'white' } : {};
 
-                            return <tr className={[treined ? `treined` : ""].join(' ')}>
+                            return <tr className={[treined ? `treined` : ""].join(' ')} key={idx}>
                                 <td>{name} ({attr}{armadura ? ' / armadura' : ''})</td>
                                 <td><Input type='number' style={{ width: 100 }} value={total} /></td>
                                 <td><Input type='number' style={{ width: 100 }} value={valueLevel} /></td>

@@ -60,7 +60,6 @@ export function GlabalProvider({ children }) {
                 const strFicha = JSON.stringify(fc);
                 if (keyFromText(strFicha) !== key || !key)
                     throw new Error(`O arquivo não pode ser carregado por ter sido adulterado`);
-                console.log('fc :>> ', fc);
                 setFicha(fc);
             } catch (e) {
                 window.alert(`${e}`);
