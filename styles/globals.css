@@ -14,3 +14,27 @@ a {
 * {
   box-sizing: border-box;
 }
+
+
+table.list th,
+table.list td {
+  font-size: 10;
+  text-align: left;
+}
+
+table tr.treined {
+  background-color: #fdd;
+}
+
+button {
+  padding: 10px;
+  background-color: #07a;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.8;
+}
