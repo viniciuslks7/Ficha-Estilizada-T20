@@ -12,6 +12,7 @@ import Input from '../components/Input'
 import Label from '../components/Label'
 import Select from '../components/Select'
 import styles from '../styles/Home.module.css'
+import { fNumber } from '../utils/fNumber'
 import { getClassDetail } from '../utils/getClassDetail'
 import { getDivindadeDetail } from '../utils/getDivindadeDetail'
 import { getRacaDetail } from '../utils/getRacaDetail'
@@ -95,14 +96,14 @@ const Main: FC = () => {
                 <Input
                     type='number'
                     width={80} flex={0}
-                    value={classDetail?.pvInicial + Number(ficha.con_bonus || 0) + (classDetail?.incremetPv + Number(ficha.con_bonus || 0)) * Number(ficha.nivel || 0)}
+                    value={fNumber(classDetail?.pvInicial) + fNumber(ficha.con_bonus) + (fNumber(classDetail?.incremetPv) + fNumber(ficha.con_bonus)) * fNumber(ficha.nivel)}
                 />
             </Label>
             <Label flex={0} caption='PM'>
                 <Input
                     type='number'
                     width={80} flex={0}
-                    value={classDetail?.pm * Number(ficha.nivel || 0)}
+                    value={fNumber(classDetail?.pm) * fNumber(ficha.nivel)}
                 />
             </Label>
         </DivFlex>
@@ -112,7 +113,7 @@ const Main: FC = () => {
                     width={80} flex={0}
                     type='number' placeholder='CA Total' title='CA Total'
                     value={
-                        10 + Number(ficha.des_bonus) + Number(ficha['ca.bodus_armadura']) + Number(ficha['ca.bodus_esculdo']) + Number(ficha['ca.outros_bonus'])
+                        10 + fNumber(ficha.des_bonus) + fNumber(ficha['ca.bodus_armadura']) + fNumber(ficha['ca.bodus_esculdo']) + fNumber(ficha['ca.outros_bonus'])
                     }
                 />
                 <Input width={80} flex={0} type='number' placeholder='Destreza' title='Bônus de destreza' value={Number(ficha.des_bonus)} />
@@ -165,14 +166,14 @@ const Main: FC = () => {
                         PERICIAS.map((per, idx) => {
 
                             const { attr, name, treined, armadura } = per;
-                            const valueAttr = Number(ficha[`${per.attr}_bonus`] || 0);
-                            const valueLevel = Math.trunc(Number(ficha.nivel) / 2);
-                            const valueTreino = Number(ficha[`pericia.${name}_treino`] || 0)
-                            const valueOutros = Number(ficha[`pericia.${name}_outros`] || 0)
+                            const valueAttr = fNumber(ficha[`${per.attr}_bonus`]);
+                            const valueLevel = Math.trunc(fNumber(ficha.nivel) / 2);
+                            const valueTreino = fNumber(ficha[`pericia.${name}_treino`])
+                            const valueOutros = fNumber(ficha[`pericia.${name}_outros`])
                             const total = (treined && !valueTreino) ? '' :
                                 valueLevel + valueAttr + valueTreino + valueOutros;
 
-                            const errorTreinedStyle = (valueTreino !== 0 && valueTreino !== Number(PERICIA_TREINO)) ?
+                            const errorTreinedStyle = (valueTreino !== 0 && valueTreino !== fNumber(PERICIA_TREINO)) ?
                                 { backgroundColor: 'red', color: 'white' } : {};
 
                             return <tr className={[treined ? `treined` : ""].join(' ')} key={idx}>

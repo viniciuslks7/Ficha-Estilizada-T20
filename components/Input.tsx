@@ -25,7 +25,7 @@ const Input: FC<Props> = ({ style, name, onChange, flex = 1, value, width, ...pr
     }
 
     const processValue = (value !== undefined) ? { value } :
-        name ? { value: `${ficha[name]}` } :
+        name ? { value: `${ficha[name] || ''}` } :
             {}
 
     return <input
