@@ -1,15 +1,14 @@
-Este é um projeto [Next.js](https://nextjs.org/) iniciado com [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
 ## Este projeto é uma versão estilizada da ficha tormenta T20, não se esqueça de conferir o código original na íntegra [https://github.com/oissac22/ficha-rpg-tormenta-d20]
+
+Este é um projeto [Next.js](https://nextjs.org/) iniciado com [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 
 ## Como começar
 
 Primeiro, execute o servidor de desenvolvimento:
 
-``bash
 npm run dev
-# ou
+ou
 yarn dev
 
 
