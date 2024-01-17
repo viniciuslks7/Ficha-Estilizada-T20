@@ -40,7 +40,7 @@ const Input: FC<Props> = ({ style, name, onChange, flex = 1, value, width, ...pr
 const STYLE: React.CSSProperties = {
     padding: 10,
     margin: 3,
-    border: 'solid 1px #ccc',
+    border: 'solid 1px #cfcfcf',
     outline: 'green',
     borderRadius: 4
 }

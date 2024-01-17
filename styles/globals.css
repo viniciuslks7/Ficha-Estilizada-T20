@@ -4,6 +4,10 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  background: url("../public/tauron-capa.jpg") no-repeat center center;
+  background-color: black;
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 a {
@@ -15,20 +19,23 @@ a {
   box-sizing: border-box;
 }
 
-
 table.list th,
 table.list td {
   font-size: 10;
-  text-align: left;
+  text-align: center;
+}
+
+b, table.list th {
+  color:#fff
 }
 
 table tr.treined {
-  background-color: #fdd;
+  background-color: #EF8285;
 }
 
 button {
   padding: 10px;
-  background-color: #07a;
+  background-color: #d13235;
   color: #fff;
   border: none;
   border-radius: 4px;
@@ -37,4 +44,11 @@ button {
 
 button:hover {
   opacity: 0.8;
+}
+
+.wallpaper {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+  padding: 1%;
+  backdrop-filter: blur(10px);
 }

@@ -16,6 +16,9 @@ import { fNumber } from '../utils/fNumber'
 import { getClassDetail } from '../utils/getClassDetail'
 import { getDivindadeDetail } from '../utils/getDivindadeDetail'
 import { getRacaDetail } from '../utils/getRacaDetail'
+import { url } from 'inspector'
+
+import tormenta from "../public/tormenta20-background.jpg"
 
 
 const Main: FC = () => {
@@ -30,17 +33,17 @@ const Main: FC = () => {
     const racaDetail = getRacaDetail(ficha.raca)
     const divindadeDetail = getDivindadeDetail(ficha.divindade)
 
-    return <DivFlex flexDirection='column' style={{ width: '100%', minHeight: '100%', maxWidth: 900 }} gap={50} flexWrap='nowrap'>
-        <DivFlex style={{ marginTop: 20 }}>
-            <button onClick={salvarFicha}>Salvar ficha em arquivo</button>
+    return <DivFlex flexDirection='column' style={{ width: '100%', minHeight: '100%', maxWidth: 900}} gap={50} flexWrap='nowrap'>
+        <DivFlex className="wallpaper" style={{ marginTop: 20 }}>
+            <button onClick={salvarFicha}>Salvar Ficha</button>
             <Label caption='Carregar arquivo de ficha'>
                 <input type='file' onChange={carregarFicha} />
             </Label>
         </DivFlex>
-        <DivFlex flexDirection='column'>
+        <DivFlex className="wallpaper" flexDirection='column'>
             <DivFlex>
-                <Input placeholder='Jogador' name='jogador' />
-                <Input placeholder='Personagem' name='personagem' />
+                <Input placeholder='Nome do Jogador' name='jogador' />
+                <Input placeholder='Nome do Personagem' name='personagem' />
             </DivFlex>
             <DivFlex>
                 <Select placeholder='Raça' name='raca' items={RACAS} defaultValue='Humano' />
@@ -52,12 +55,12 @@ const Main: FC = () => {
                 <Select placeholder='Divindade' name='divindade' items={DIVINDADES} />
             </DivFlex>
         </DivFlex>
-        <DivFlex>
+        <DivFlex className="wallpaper">
             <Label caption='Ajuste de atributos'>
                 {racaDetail?.attrAjust}
             </Label>
         </DivFlex>
-        <DivFlex flexDirection='column' flexWrap='nowrap'>
+        <DivFlex className="wallpaper" flexDirection='column' flexWrap='nowrap'>
             <DivFlex flexDirection='column'>
                 <Label caption='FOR / AJUSTES / BONUS' >
                     <Input width={80} flex={0} name='for' placeholder='FOR' type='number' />
@@ -91,7 +94,7 @@ const Main: FC = () => {
                 </Label>
             </DivFlex>
         </DivFlex>
-        <DivFlex>
+        <DivFlex className="wallpaper">
             <Label flex={0} caption='PV / PM'>
                 <Input
                     type='number'
@@ -107,7 +110,7 @@ const Main: FC = () => {
                 />
             </Label>
         </DivFlex>
-        <DivFlex>
+        <DivFlex className="wallpaper">
             <Label caption='CA / Destreza / armadura / escudo / outros'>
                 <Input
                     width={80} flex={0}
@@ -122,7 +125,7 @@ const Main: FC = () => {
                 <Input width={80} flex={0} type='number' placeholder='Outros bônus' title='Outros bônus' name='ca.outros_bonus' />
             </Label>
         </DivFlex>
-        <DivFlex>
+        <DivFlex className="wallpaper">
             <Label caption='HABILIDADES DE RAÇA'>
                 {racaDetail?.habilidades || 'Nenhuma'}
             </Label>
@@ -132,7 +135,7 @@ const Main: FC = () => {
         </DivFlex>
         {
             !divindadeDetail?.name ? null :
-                <DivFlex>
+                <DivFlex className="wallpaper">
                     <Label caption='Energia'>
                         {divindadeDetail?.energia}
                     </Label>
@@ -144,7 +147,7 @@ const Main: FC = () => {
                     </Label>
                 </DivFlex>
         }
-        <DivFlex flexDirection='column'>
+        <DivFlex className="wallpaper" flexDirection='column'>
             <div>
                 <b>Perícias:</b> {classDetail?.pericias || ''}
             </div>
@@ -174,7 +177,7 @@ const Main: FC = () => {
                                 valueLevel + valueAttr + valueTreino + valueOutros;
 
                             const errorTreinedStyle = (valueTreino !== 0 && valueTreino !== fNumber(PERICIA_TREINO)) ?
-                                { backgroundColor: 'red', color: 'white' } : {};
+                                { backgroundColor: '#DF2328', color: 'white' } : {};
 
                             return <tr className={[treined ? `treined` : ""].join(' ')} key={idx}>
                                 <td>{name} ({attr}{armadura ? ' / armadura' : ''})</td>
@@ -197,9 +200,9 @@ export default function Home() {
     return (
         <div className={styles.container}>
             <Head>
-                <title>Ficha Tormenta D20</title>
+                <title>Ficha - Tormenta 20</title>
                 <meta name="description" content="Montagem de ficha de tormenta D20" />
-                <link rel="icon" href="/favicon.ico" />
+                <link rel="icon" href="/logo-tormenta.ico" />
             </Head>
             <GlabalProvider>
                 <Main />

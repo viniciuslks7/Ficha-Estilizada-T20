@@ -1,6 +1,7 @@
 import { INSPECT_MAX_BYTES } from "buffer";
 import { ChangeEvent, FC } from "react";
 import useGlobal from "./globalContext";
+import { url } from "inspector";
 
 interface Props extends React.InputHTMLAttributes<HTMLSelectElement> {
     flex?: number,
@@ -53,9 +54,9 @@ const Select: FC<Props> = ({ style, name, onChange, children, items, flex = 1, .
 const STYLE: React.CSSProperties = {
     padding: 10,
     margin: 3,
-    border: 'solid 1px #ccc',
-    outline: 'green',
-    borderRadius: 4
+    border: 'solid 1px red',
+    outline: 'red',
+    borderRadius: 4,
 }
 
 export default Select;

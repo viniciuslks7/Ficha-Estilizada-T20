@@ -26,8 +26,9 @@ const STYLE_CONTAINER: React.CSSProperties = {
     gap: 3
 }
 const STYLE_TITLE: React.CSSProperties = {
-    fontSize: 12,
-    color: '#ccc'
+    fontSize: 16,
+    color: '#fff',
+    fontWeight: 'bold'
 }
 const STYLE_CHILDREN: React.CSSProperties = {
     display: 'flex'
